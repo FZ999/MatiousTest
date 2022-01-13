@@ -1,0 +1,37 @@
+<div class="row">
+    <div > 
+        <h5>Filtrer par catégorie</h5>
+        <select   [(ngModel)]="searchText" (click)="searchProducts()" >
+            <option *ngFor="let c of categories">
+                {{c}}
+            </option>
+        </select>
+        <div class="container">
+
+        <table class="table">
+            <thead>
+            <tr>
+                <th>Titre</th>
+                <th>Prix</th>
+                <th>Description</th>
+                <th>Catégorie</th>
+                <th>Image</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor= "let item of resultItems.slice(a,b)" >
+                <td>{{item.title}}</td>
+                <td>{{item.price}}</td>
+                <td>{{item.description}}</td>
+                <td>{{item.category}}</td>
+                <td><img src="{{item.image}}" style="height: 60px; width: 60px;"></td>
+            </tr>
+        </tbody>
+            
+         </table>
+         <button *ngIf= "b < 20" (click)= "inc()"> suivant</button>
+            <button *ngIf= "a != 0 " (click)= "dec()"> Retour</button>
+         </div>
+    </div>
+</div>
+
